@@ -17,25 +17,19 @@ for i in range(1,6):
 
     for p in path_list:
         driver.get(p)
-        title = driver.find_elements_by_css_selector(xpath + '> strong > a')
-        id_num = driver.find_elements_by_css_selector(xpath + '> span.num_info')
-        date = driver.find_elements_by_css_selector(xpath + '> span.date_info')
+        get_title = driver.find_elements_by_css_selector(xpath + '> strong > a')
+        get_num = driver.find_elements_by_css_selector(xpath + '> span.num_info')
+        get_date = driver.find_elements_by_css_selector(xpath + '> span.date_info')
 
-        list = zip(id_num, title, date)
 
-        for a,b,c in list:
-            id = [ print(a.text) ]
-            title = [ print(b.text) ]
-            date = [ print(c.text) ]
+        # csv
+        f = open('ebs.csv', mode='a', encoding='utf-8', newline='')
+        wr = csv.writer(f)
 
-            a_list = zip(id, title, date)
+        for list in zip(get_num, get_title, get_date):
+            num = list[0].text
+            title = list[1].text
+            date = list[2].text
+            wr.writerow([num, title, date])
 
-"""
-            # csv
-            f = open('ebs.csv', 'w', encoding='utf-8', newline='')
-            wr = csv.writer(f)
-            wr.writerow(a_list)
-            f.close()
-"""
-        
 driver.quit()
