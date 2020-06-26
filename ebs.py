@@ -20,7 +20,7 @@ for i in range(1,6):
         get_title = driver.find_elements_by_css_selector(xpath + '> strong > a')
         get_num = driver.find_elements_by_css_selector(xpath + '> span.num_info')
         get_date = driver.find_elements_by_css_selector(xpath + '> span.date_info')
-
+        get_url = driver.find_elements_by_css_selector(xpath + '')
 
         # csv
         f = open('ebs.csv', mode='a', encoding='utf-8', newline='')
@@ -29,7 +29,8 @@ for i in range(1,6):
         for list in zip(get_num, get_title, get_date):
             num = list[0].text
             title = list[1].text
+            join_title = title.replace(" ","")[:5]
             date = list[2].text
-            wr.writerow([num, title, date])
+            wr.writerow([num, title, date, join_title])
 
 driver.quit()

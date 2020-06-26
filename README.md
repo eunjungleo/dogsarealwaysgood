@@ -5,8 +5,8 @@
 ```
 
 TO DO LIST
-1. season 뽑기
-2. youtube 주소 가져오기 했음
-3. csv 파일 넣기
-4. mySQL 연결
+1. season별로 csv 분할
+2. 크롤링 코드 자동 업데이트
+3. youtube url 업데이트 --> 스크롤 다운 시킨뒤 모든 url 끌어오기
+4. tableau DB 자동 업데이트
 
