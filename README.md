@@ -3,6 +3,8 @@
 
 ```pip install selenium
 ```
+'''pip install schedule
+'''
 
 TO DO LIST
 1. season별로 csv 분할
